@@ -1,0 +1,36 @@
+body{
+    background-color: #0A0A0Aff;
+    font-family: 'Montserrat', sans-serif;
+}
+.App{
+    width: 90%;
+    margin: 0 auto;
+}
+.container{
+    display: flex;
+    flex-flow: wrap;
+}
+.movies-content, .favourites-content{
+    flex: 5 1;
+    display: flex;
+    flex-direction: column;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Roboto', sans-serif;
+}
+h1{
+    font-size: 4rem;
+}
+h2{
+    font-size:2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+    color: #B68F40;
+}
+strong{
+    letter-spacing: 1px;
+}
+
+
+

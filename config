@@ -1,0 +1,9 @@
+[user]
+    name=kristina-codes-42
+    email=kgreig12@caledonian.ac.uk
+
+git init
+git add -A
+git commit -m 'Added my project'
+git remote add origin git@github.com:kristina-codes-42/JB.git
+git push -u -f origin master

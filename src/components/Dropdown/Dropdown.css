@@ -1,0 +1,14 @@
+.dropdown{
+    color: white;
+    margin: 0 0 2rem;
+    width: auto;
+}
+.dropdown__label{
+
+}
+.dropdown__select{
+    height: 2rem;
+    border-radius: 0.2rem;
+    background: lightgrey;
+    margin: 0 0 0 0.5rem;
+}
