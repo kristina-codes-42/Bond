@@ -3,23 +3,19 @@ import './Form.css';
 
 const Form = (props) => {
     const { onStateChange } = props;
-
-    //console.log(props.data);
-
-    const [movies, setMovies] = useState(props.data.filmsDisplayed);
+   
     const [name, setName] = useState("");
     const [actor, setActor] = useState("");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState("");
     const [boxoffice, setBoxoffice] = useState("");
     const [image, setImage] = useState("");
-
-    //console.log(movies);
+    let newMovie;
 
     const addBondSubmit = (event) => {
         event.preventDefault();
         
-        const newMovie = {
+        newMovie = {
             'Film': name,
             'Bond Actor': actor,
             'UK release date': date,
@@ -28,20 +24,14 @@ const Form = (props) => {
             'Box Office(Millions)': boxoffice
         }
 
-        
-        
-        
-        setMovies([...movies, newMovie]);
-        const updatedMovies = movies;
-        //console.log(movies);
-        onStateChange(updatedMovies);
-
         setName('');
         setActor('');
         setDescription('');
         setDate('');
         setBoxoffice('');
         setImage('');
+
+        onStateChange(newMovie)
     }
     
 

@@ -1,21 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Modal from "../Modal/Modal";
 import './Movie.css';
-import _ from "lodash";
 
 const Movie = (props) => {
     const data = Array.from(props.data);
-    const [movies, setMovies] = useState([]);
     const { onStateChange } = props;
-
-    useEffect(() => {
-        setMovies(props.data);
-      },[props.data]);
-
-    const handleItemClick = ({ target }) => {
-        onStateChange(target);
-    }
-    
     
     return (
         <div className="movie-container">
@@ -40,7 +29,7 @@ const Movie = (props) => {
                             boxOffice={props['Box Office(Millions)']}
                             />
                            
-                            <button className="button" onClick={handleItemClick} >Fav</button>
+                           <button className="button button--secondary movie__button" onClick={() => onStateChange(props.Film)} >Add Favourite</button>
                         </div>
                     </article>
                 );

@@ -11,7 +11,17 @@
     letter-spacing: 1px;
     font-size: 1rem;
 }
+.button--secondary{
+    background-color: #b68f40;
+    color: #ffffff;
+    border-color: #8a6a29; 
+}
 .button:hover{
     background-color:#ce0b0b;
     border-color: #a00f0f; 
+}
+
+.button--secondary:hover{
+    background-color: #8a6a29;
+    border-color: transparent;
 }

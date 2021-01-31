@@ -38,3 +38,7 @@
     height: 100%;
     justify-content: space-evenly;
 }
+
+.movie__button{
+    margin: 1rem 0 0;
+}

@@ -5,27 +5,30 @@ import Dropdown from "./Dropdown/Dropdown";
 import Form from "./Form/Form";
 import _ from "lodash";
 
-
-
 const Home = () => {
 
-    const Films = BondFilms;
+    //const Films = BondFilms;
     let filmsDisplayed = BondFilms;
     let myFavourites = window.localStorage.getItem("Favs");
     myFavourites = JSON.parse(myFavourites);
-    console.log(myFavourites);
+    
     if(_.isEmpty(myFavourites)){
         myFavourites=[]
     }else{
         myFavourites = myFavourites.favs;
     }
 
-    const [movieData, setMovieData] = useState({ filmsDisplayed });
+    const [movieData, setMovieData] = useState({ });
     const [favs, setFavs] = useState(myFavourites);
     
     useEffect(() =>{
         setMovieData(filmsDisplayed);
     }, [filmsDisplayed]);
+
+    useEffect(() => {
+        window.localStorage.setItem("Favs", JSON.stringify({ favs }));
+    }, [favs]);
+
 
     const names = [];
     for(let i=0; i<BondFilms.length; i++){
@@ -34,29 +37,23 @@ const Home = () => {
     const uniqueNames = [...new Set(names)];
     
 
-    const handleStateChange = updatedState =>{
-        if(updatedState.value === "Any"){
-            setMovieData(Films);
+    const handleStateChange = selectedActor =>{
+        
+        if(selectedActor !== "Any"){
+            const filmsDisplayedByActor = _.filter(filmsDisplayed, [["Bond Actor"], selectedActor]);
+            setMovieData(filmsDisplayedByActor);
         }else{
-            filmsDisplayed = _.filter(Films, [["Bond Actor"], updatedState.value]);
-            setMovieData(filmsDisplayed);
+            console.log(movieData);
+            setMovieData(movieData);
         }
     };
 
-    const handleAddMovie = updatedMovies => {
-        setMovieData(updatedMovies);
+    const handleAddMovie = newMovie => {
+        setMovieData([...movieData, newMovie]);
     }
     
-    const handleAddFav = target => {
-        console.log('click');
-        const clickedItem = target.parentElement.parentElement.id;
-        const updatedItems = _.filter(filmsDisplayed, function(item){
-            return item.Film === clickedItem;
-        })
-        const newFavs = updatedItems[0].Film;
-        setFavs([...favs, newFavs]);
-        window.localStorage.setItem("Favs", JSON.stringify({ favs }));
-       
+    const handleAddFav = film => {
+        setFavs([...favs, film]);
     }
    
     

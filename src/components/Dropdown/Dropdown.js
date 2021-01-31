@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Dropdown.css'
 
 const Dropdown = (props) => {
@@ -6,19 +6,20 @@ const Dropdown = (props) => {
     const data = Array.from(props.data);
 
     const { onStateChange } = props;
-    const [state, setState] = useState({
+     /*const [state, setState] = useState({
         selected: false,
         value: props.placeholder
-    });
+    });*/
 
     const handleChange = event => {
-        const updatedState = {
+       /* const updatedState = {
             ...state,
             selected: true,
             value: event.target.value
         }
-        setState(updatedState);
-        onStateChange(updatedState);
+        setState(updatedState);*/
+        const selectedActor = event.target.value;
+        onStateChange(selectedActor);
     };
     
 
