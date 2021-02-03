@@ -6,18 +6,8 @@ const Dropdown = (props) => {
     const data = Array.from(props.data);
 
     const { onStateChange } = props;
-     /*const [state, setState] = useState({
-        selected: false,
-        value: props.placeholder
-    });*/
 
     const handleChange = event => {
-       /* const updatedState = {
-            ...state,
-            selected: true,
-            value: event.target.value
-        }
-        setState(updatedState);*/
         const selectedActor = event.target.value;
         onStateChange(selectedActor);
     };
